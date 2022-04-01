@@ -1,0 +1,54 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://Scripts/Social_Quiz_Tooltip.gd" type="Script" id=1]
+
+[node name="Social_Quiz_Tooltip" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+rect_scale = Vector2( 3, 3 )
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+margin_right = 40.0
+margin_bottom = 40.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ColorRect" type="ColorRect" parent="VBoxContainer"]
+margin_right = 100.0
+margin_bottom = 100.0
+rect_min_size = Vector2( 100, 100 )
+color = Color( 0.168627, 0.14902, 0.184314, 1 )
+
+[node name="TooltipLabel" type="Label" parent="VBoxContainer/ColorRect"]
+margin_top = 4.0
+margin_right = 88.0
+margin_bottom = 69.0
+text = "In this game mode such and such and so on"
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="UnderstoodButton" type="Button" parent="VBoxContainer"]
+margin_top = 104.0
+margin_right = 100.0
+margin_bottom = 124.0
+text = "Understood"
+
+[node name="TimerLabel" type="Label" parent="VBoxContainer"]
+margin_top = 128.0
+margin_right = 100.0
+margin_bottom = 142.0
+text = "Starting in: 20"
+
+[node name="UnderstoodTimer" type="Timer" parent="."]
+wait_time = 20.0
+autostart = true
+
+[connection signal="pressed" from="VBoxContainer/UnderstoodButton" to="." method="_on_UnderstoodButton_pressed"]
+[connection signal="timeout" from="UnderstoodTimer" to="." method="_on_UnderstoodTimer_timeout"]

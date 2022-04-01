@@ -1,0 +1,14 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://Scenes/JoinScene/JoinSceneUI.tscn" type="PackedScene" id=1]
+
+[node name="Join Scene" type="Node2D"]
+
+[node name="JoinScene" parent="." instance=ExtResource( 1 )]
+margin_left = -102.259
+margin_top = -19.8526
+margin_right = -102.259
+margin_bottom = -19.8526
+
+[node name="Camera2D" type="Camera2D" parent="."]
+current = true

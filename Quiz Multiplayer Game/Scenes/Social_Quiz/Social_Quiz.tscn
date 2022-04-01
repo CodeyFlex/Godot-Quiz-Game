@@ -1,0 +1,72 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://Scenes/Social_Quiz/Social_Quiz_UI.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Scenes/Social_Quiz/Social_Quiz_Map.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Scripts/Social_Quiz.gd" type="Script" id=3]
+[ext_resource path="res://Scenes/Social_Quiz/Social_Quiz_Tooltip.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Scenes/Player.tscn" type="PackedScene" id=5]
+
+[sub_resource type="CapsuleShape2D" id=1]
+radius = 92.788
+height = 11.8111
+
+[node name="Social_Quiz" type="Node2D"]
+script = ExtResource( 3 )
+
+[node name="Map" parent="." instance=ExtResource( 2 )]
+
+[node name="Player" parent="." instance=ExtResource( 5 )]
+position = Vector2( -76.7166, -880.5 )
+
+[node name="Quiz_UI" parent="." instance=ExtResource( 1 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = -450.482
+margin_top = -354.721
+margin_right = -450.482
+margin_bottom = -354.721
+
+[node name="Camera2D" type="Camera2D" parent="."]
+current = true
+
+[node name="GameTimer" type="Timer" parent="."]
+wait_time = 180.0
+autostart = true
+
+[node name="GameTimerLabel" type="Label" parent="."]
+margin_left = -299.508
+margin_top = -352.7
+margin_right = -99.5077
+margin_bottom = -338.7
+rect_min_size = Vector2( 200, 0 )
+rect_scale = Vector2( 3, 3 )
+text = "Game Time Left: 0"
+align = 1
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Social_Quiz_Tooltip" parent="." instance=ExtResource( 4 )]
+visible = false
+margin_left = -151.329
+margin_top = -134.848
+margin_right = -151.329
+margin_bottom = -134.848
+
+[node name="AnimationArea" type="Area2D" parent="."]
+position = Vector2( -427.658, -160.512 )
+
+[node name="CollisionPolygon2D" type="CollisionShape2D" parent="AnimationArea"]
+position = Vector2( 46.922, -33.5428 )
+rotation = -0.76969
+shape = SubResource( 1 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="AnimationArea"]
+
+[connection signal="answer_Reset_Signal" from="Quiz_UI" to="." method="_on_Quiz_UI_answer_Reset_Signal"]
+[connection signal="answer_Signal1" from="Quiz_UI" to="." method="_on_Quiz_UI_answer_Signal1"]
+[connection signal="answer_Signal2" from="Quiz_UI" to="." method="_on_Quiz_UI_answer_Signal2"]
+[connection signal="answer_Signal3" from="Quiz_UI" to="." method="_on_Quiz_UI_answer_Signal3"]
+[connection signal="answer_Signal4" from="Quiz_UI" to="." method="_on_Quiz_UI_answer_Signal4"]
+[connection signal="timeout" from="GameTimer" to="." method="_on_GameTimer_timeout"]

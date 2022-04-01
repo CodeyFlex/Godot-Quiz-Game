@@ -1,0 +1,195 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://Scripts/Social_Quiz_UI.gd" type="Script" id=1]
+
+[node name="Quiz_UI" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+margin_right = 300.0
+margin_bottom = 200.0
+rect_min_size = Vector2( 300, 200 )
+rect_scale = Vector2( 3, 3 )
+alignment = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="QuestionLabel" type="Label" parent="VBoxContainer"]
+margin_top = 27.0
+margin_right = 300.0
+margin_bottom = 41.0
+text = "Quiz time!"
+align = 1
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="CenterContainer1" type="CenterContainer" parent="VBoxContainer"]
+margin_top = 45.0
+margin_right = 300.0
+margin_bottom = 65.0
+
+[node name="HBoxContainer1" type="HBoxContainer" parent="VBoxContainer/CenterContainer1"]
+margin_left = 68.0
+margin_right = 232.0
+margin_bottom = 20.0
+alignment = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Button1" type="Button" parent="VBoxContainer/CenterContainer1/HBoxContainer1"]
+margin_right = 80.0
+margin_bottom = 20.0
+rect_min_size = Vector2( 80, 0 )
+text = "Get"
+
+[node name="ChosenByNumberLabel1" type="Label" parent="VBoxContainer/CenterContainer1/HBoxContainer1/Button1"]
+visible = false
+margin_right = 40.0
+margin_bottom = 14.0
+text = "0"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Button2" type="Button" parent="VBoxContainer/CenterContainer1/HBoxContainer1"]
+margin_left = 84.0
+margin_right = 164.0
+margin_bottom = 20.0
+rect_min_size = Vector2( 80, 0 )
+text = "Ready"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ChosenByNumberLabel2" type="Label" parent="VBoxContainer/CenterContainer1/HBoxContainer1/Button2"]
+visible = false
+margin_right = 40.0
+margin_bottom = 14.0
+text = "0"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="CenterContainer2" type="CenterContainer" parent="VBoxContainer"]
+margin_top = 69.0
+margin_right = 300.0
+margin_bottom = 89.0
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="VBoxContainer/CenterContainer2"]
+margin_left = 68.0
+margin_right = 232.0
+margin_bottom = 20.0
+alignment = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Button3" type="Button" parent="VBoxContainer/CenterContainer2/HBoxContainer2"]
+margin_right = 80.0
+margin_bottom = 20.0
+rect_min_size = Vector2( 80, 0 )
+text = "To"
+
+[node name="ChosenByNumberLabel3" type="Label" parent="VBoxContainer/CenterContainer2/HBoxContainer2/Button3"]
+visible = false
+margin_right = 40.0
+margin_bottom = 14.0
+text = "0"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Button4" type="Button" parent="VBoxContainer/CenterContainer2/HBoxContainer2"]
+margin_left = 84.0
+margin_right = 164.0
+margin_bottom = 20.0
+rect_min_size = Vector2( 80, 0 )
+text = "Quiz"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ChosenByNumberLabel4" type="Label" parent="VBoxContainer/CenterContainer2/HBoxContainer2/Button4"]
+visible = false
+margin_right = 40.0
+margin_bottom = 14.0
+text = "0"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TimeLeftLabel" type="Label" parent="VBoxContainer"]
+margin_top = 93.0
+margin_right = 300.0
+margin_bottom = 107.0
+text = "Time left: ?"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="PointsLabel" type="Label" parent="VBoxContainer"]
+margin_top = 111.0
+margin_right = 300.0
+margin_bottom = 125.0
+text = "Points: 0"
+align = 1
+
+[node name="BetAnswerButton" type="Button" parent="VBoxContainer"]
+margin_top = 129.0
+margin_right = 300.0
+margin_bottom = 149.0
+text = "Bet Answer"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="BetAnswerTimerLabel" type="Label" parent="VBoxContainer/BetAnswerButton"]
+visible = false
+margin_right = 40.0
+margin_bottom = 14.0
+text = "7"
+align = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ChosenByNumberLabel5" type="Label" parent="VBoxContainer/BetAnswerButton"]
+visible = false
+margin_right = 40.0
+margin_bottom = 14.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="QuizTimer" type="Timer" parent="VBoxContainer"]
+wait_time = 5.0
+autostart = true
+
+[node name="BetDelayTimer" type="Timer" parent="VBoxContainer"]
+wait_time = 7.0
+one_shot = true
+
+[node name="TempContinueButton" type="Button" parent="VBoxContainer"]
+margin_top = 153.0
+margin_right = 300.0
+margin_bottom = 173.0
+text = "Go Next"
+
+[connection signal="pressed" from="VBoxContainer/CenterContainer1/HBoxContainer1/Button1" to="." method="_on_Button1_pressed"]
+[connection signal="pressed" from="VBoxContainer/CenterContainer1/HBoxContainer1/Button2" to="." method="_on_Button2_pressed"]
+[connection signal="pressed" from="VBoxContainer/CenterContainer2/HBoxContainer2/Button3" to="." method="_on_Button3_pressed"]
+[connection signal="pressed" from="VBoxContainer/CenterContainer2/HBoxContainer2/Button4" to="." method="_on_Button4_pressed"]
+[connection signal="pressed" from="VBoxContainer/BetAnswerButton" to="." method="_on_BetAnswerButton_pressed"]
+[connection signal="timeout" from="VBoxContainer/QuizTimer" to="." method="_on_QuizTimer_timeout"]
+[connection signal="timeout" from="VBoxContainer/BetDelayTimer" to="." method="_on_BetDelayTimer_timeout"]
+[connection signal="pressed" from="VBoxContainer/TempContinueButton" to="." method="_on_TempContinueButton_pressed"]

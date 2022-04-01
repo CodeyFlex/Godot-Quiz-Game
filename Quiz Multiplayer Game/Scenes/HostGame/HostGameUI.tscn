@@ -1,0 +1,65 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://Scripts/HostGameUI.gd" type="Script" id=1]
+
+[node name="HostGameUI" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+rect_scale = Vector2( 2, 2 )
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+margin_right = 40.0
+margin_bottom = 40.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer"]
+margin_right = 120.0
+margin_bottom = 82.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="LobbyCodeLabel" type="Label" parent="HBoxContainer/VBoxContainer"]
+margin_right = 120.0
+margin_bottom = 14.0
+text = "Lobby Code: 5H2K"
+
+[node name="PlayersLabel" type="Label" parent="HBoxContainer/VBoxContainer"]
+margin_top = 18.0
+margin_right = 120.0
+margin_bottom = 32.0
+text = "Players in Lobby: 5"
+
+[node name="StartButton" type="Button" parent="HBoxContainer/VBoxContainer"]
+margin_top = 36.0
+margin_right = 120.0
+margin_bottom = 56.0
+text = "Start Quiz"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="GoBackButton" type="Button" parent="HBoxContainer/VBoxContainer"]
+margin_top = 60.0
+margin_right = 120.0
+margin_bottom = 80.0
+text = "Go Back"
+
+[node name="RichTextLabel" type="Label" parent="HBoxContainer"]
+margin_left = 124.0
+margin_right = 180.0
+margin_bottom = 82.0
+text = "Person 1
+Person 2
+Person 3
+Person 4
+Person 5"
+
+[connection signal="pressed" from="HBoxContainer/VBoxContainer/StartButton" to="." method="_on_StartButton_pressed"]
+[connection signal="pressed" from="HBoxContainer/VBoxContainer/GoBackButton" to="." method="_on_GoBackButton_pressed"]

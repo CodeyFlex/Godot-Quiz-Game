@@ -1,0 +1,92 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://Scripts/PVP_Quiz_UI.gd" type="Script" id=1]
+
+[node name="PVP_Quiz" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+rect_scale = Vector2( 3, 3 )
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+rect_min_size = Vector2( 300, 200 )
+alignment = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="QuestionLabel" type="Label" parent="VBoxContainer"]
+margin_top = 51.0
+margin_right = 300.0
+margin_bottom = 65.0
+text = "Who did the thing?"
+align = 1
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="CenterContainer1" type="CenterContainer" parent="VBoxContainer"]
+margin_top = 69.0
+margin_right = 300.0
+margin_bottom = 89.0
+
+[node name="HBoxContainer1" type="HBoxContainer" parent="VBoxContainer/CenterContainer1"]
+margin_left = 68.0
+margin_right = 232.0
+margin_bottom = 20.0
+alignment = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Button1" type="Button" parent="VBoxContainer/CenterContainer1/HBoxContainer1"]
+margin_right = 80.0
+margin_bottom = 20.0
+rect_min_size = Vector2( 80, 0 )
+text = "Answer 1"
+
+[node name="Button2" type="Button" parent="VBoxContainer/CenterContainer1/HBoxContainer1"]
+margin_left = 84.0
+margin_right = 164.0
+margin_bottom = 20.0
+rect_min_size = Vector2( 80, 0 )
+text = "Answer 2"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TimeLeftLabel" type="Label" parent="VBoxContainer"]
+margin_top = 93.0
+margin_right = 300.0
+margin_bottom = 107.0
+text = "Time left: ?"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="PointsLabel" type="Label" parent="VBoxContainer"]
+margin_top = 111.0
+margin_right = 300.0
+margin_bottom = 125.0
+text = "Points: 0"
+align = 1
+
+[node name="QuizTimer" type="Timer" parent="VBoxContainer"]
+wait_time = 10.0
+autostart = true
+
+[node name="Button" type="Button" parent="VBoxContainer"]
+margin_top = 129.0
+margin_right = 300.0
+margin_bottom = 149.0
+text = "Go Next"
+
+[connection signal="pressed" from="VBoxContainer/CenterContainer1/HBoxContainer1/Button1" to="." method="_on_Button1_pressed"]
+[connection signal="pressed" from="VBoxContainer/CenterContainer1/HBoxContainer1/Button2" to="." method="_on_Button2_pressed"]
+[connection signal="timeout" from="VBoxContainer/QuizTimer" to="." method="_on_QuizTimer_timeout"]
+[connection signal="pressed" from="VBoxContainer/Button" to="." method="_on_Button_pressed"]

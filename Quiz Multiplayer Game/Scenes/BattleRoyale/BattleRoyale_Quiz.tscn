@@ -1,0 +1,29 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://Scenes/BattleRoyale/BattleRoyale_Quiz_UI.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Scenes/BattleRoyale/BattleRoyale_Quiz_Map.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Scenes/BattleRoyale/BattleRoyale_Tooltip.tscn" type="PackedScene" id=3]
+
+[node name="BattleRoyale_Quiz" type="Node2D"]
+
+[node name="BattleRoyale_Quiz_Map" parent="." instance=ExtResource( 2 )]
+visible = false
+
+[node name="BattleRoyale_Quiz" parent="." instance=ExtResource( 1 )]
+margin_left = -440.918
+margin_top = -318.803
+margin_right = -440.918
+margin_bottom = -318.803
+
+[node name="Camera2D" type="Camera2D" parent="."]
+current = true
+
+[node name="BattleRoyale_Tooltip" parent="." instance=ExtResource( 3 )]
+visible = false
+anchor_right = 0.0
+margin_left = -121.363
+margin_top = -187.288
+margin_right = -121.363
+margin_bottom = -187.288
+
+[connection signal="startGame" from="BattleRoyale_Tooltip" to="BattleRoyale_Quiz" method="_on_BattleRoyale_Tooltip_startGame"]

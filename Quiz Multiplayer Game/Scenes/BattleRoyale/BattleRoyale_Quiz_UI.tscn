@@ -1,0 +1,156 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://Scripts/BattleRoyale_Quiz_UI.gd" type="Script" id=1]
+
+[node name="BattleRoyale_Quiz" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 0.194824
+margin_right = 0.194824
+rect_scale = Vector2( 3, 3 )
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+margin_right = 300.0
+margin_bottom = 200.0
+rect_min_size = Vector2( 300, 200 )
+alignment = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="QuestionLabel" type="Label" parent="VBoxContainer"]
+margin_top = 31.0
+margin_right = 300.0
+margin_bottom = 45.0
+text = "Did this thing happen?"
+align = 1
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="CenterContainer1" type="CenterContainer" parent="VBoxContainer"]
+margin_top = 49.0
+margin_right = 300.0
+margin_bottom = 69.0
+
+[node name="HBoxContainer1" type="HBoxContainer" parent="VBoxContainer/CenterContainer1"]
+margin_left = 68.0
+margin_right = 232.0
+margin_bottom = 20.0
+alignment = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Button1" type="Button" parent="VBoxContainer/CenterContainer1/HBoxContainer1"]
+margin_right = 80.0
+margin_bottom = 20.0
+rect_min_size = Vector2( 80, 0 )
+text = "Yes"
+
+[node name="Button2" type="Button" parent="VBoxContainer/CenterContainer1/HBoxContainer1"]
+margin_left = 84.0
+margin_right = 164.0
+margin_bottom = 20.0
+rect_min_size = Vector2( 80, 0 )
+text = "No"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="CenterContainer2" type="CenterContainer" parent="VBoxContainer"]
+margin_top = 73.0
+margin_right = 300.0
+margin_bottom = 73.0
+
+[node name="HBoxContainer1" type="HBoxContainer" parent="VBoxContainer/CenterContainer2"]
+margin_left = 150.0
+margin_right = 150.0
+alignment = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Button3" type="Button" parent="VBoxContainer/CenterContainer2/HBoxContainer1"]
+visible = false
+margin_right = 80.0
+margin_bottom = 20.0
+rect_min_size = Vector2( 80, 0 )
+text = "Yes"
+
+[node name="Button4" type="Button" parent="VBoxContainer/CenterContainer2/HBoxContainer1"]
+visible = false
+margin_right = 80.0
+margin_bottom = 20.0
+rect_min_size = Vector2( 80, 0 )
+text = "No"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TimeLeftLabel" type="Label" parent="VBoxContainer"]
+margin_top = 77.0
+margin_right = 300.0
+margin_bottom = 91.0
+text = "Time left: ?"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="PointsLabel" type="Label" parent="VBoxContainer"]
+margin_top = 95.0
+margin_right = 300.0
+margin_bottom = 109.0
+text = "Points: 0"
+align = 1
+
+[node name="PlayersLeftLabel1" type="Label" parent="VBoxContainer"]
+margin_top = 113.0
+margin_right = 300.0
+margin_bottom = 127.0
+text = "Red Players Left: 2"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="PlayersLeftLabel2" type="Label" parent="VBoxContainer"]
+margin_top = 131.0
+margin_right = 300.0
+margin_bottom = 145.0
+text = "Blue Players Left: 3"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="QuizTimer" type="Timer" parent="VBoxContainer"]
+wait_time = 5.0
+
+[node name="TempButton" type="Button" parent="VBoxContainer"]
+margin_top = 149.0
+margin_right = 300.0
+margin_bottom = 169.0
+text = "Go Next"
+
+[node name="LostGameLabel" type="Label" parent="VBoxContainer"]
+visible = false
+margin_top = 155.0
+margin_right = 300.0
+margin_bottom = 186.0
+text = "Spectating
+(You're out of lives)"
+align = 1
+
+[connection signal="pressed" from="VBoxContainer/CenterContainer1/HBoxContainer1/Button1" to="." method="_on_Button1_pressed"]
+[connection signal="pressed" from="VBoxContainer/CenterContainer1/HBoxContainer1/Button2" to="." method="_on_Button2_pressed"]
+[connection signal="pressed" from="VBoxContainer/CenterContainer2/HBoxContainer1/Button3" to="." method="_on_Button3_pressed"]
+[connection signal="pressed" from="VBoxContainer/CenterContainer2/HBoxContainer1/Button4" to="." method="_on_Button4_pressed"]
+[connection signal="timeout" from="VBoxContainer/QuizTimer" to="." method="_on_QuizTimer_timeout"]
+[connection signal="pressed" from="VBoxContainer/TempButton" to="." method="_on_TempButton_pressed"]

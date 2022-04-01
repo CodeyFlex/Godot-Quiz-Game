@@ -1,0 +1,37 @@
+{
+  "Quiz Disney": {
+    "Round_0": {
+      "Quiz_Question": "What's a cat?",
+      "Answer1": "A cat",
+      "Answer2": "A mouse",
+      "Answer3": "A dog",
+      "Answer4": "A bat",
+      "AnswerBoolean1": true,
+      "AnswerBoolean2": false,
+      "AnswerBoolean3": false,
+      "AnswerBoolean4": false
+    },
+    "Round_1": {
+      "Quiz_Question": "Who dun did it?",
+      "Answer1": "He did",
+      "Answer2": "I aint seen notin",
+      "Answer3": "It was the cat!",
+      "Answer4": "A bat",
+      "AnswerBoolean1": false,
+      "AnswerBoolean2": true,
+      "AnswerBoolean3": false,
+      "AnswerBoolean4": false
+    },
+    "Round_2": {
+      "Quiz_Question": "What is Tarzan?",
+      "Answer1": "Monkay",
+      "Answer2": "Donkay",
+      "Answer3": "Human",
+      "Answer4": "Rejecting Capitalism",
+      "AnswerBoolean1": false,
+      "AnswerBoolean2": false,
+      "AnswerBoolean3": true,
+      "AnswerBoolean4": false
+    }
+  }
+}

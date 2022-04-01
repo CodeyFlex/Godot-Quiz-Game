@@ -1,0 +1,14 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://Scenes/CreateQuiz/CreateQuizUI.tscn" type="PackedScene" id=1]
+
+[node name="CreateQuiz" type="Node2D"]
+
+[node name="CreateQuizUI" parent="." instance=ExtResource( 1 )]
+margin_left = -233.085
+margin_top = -151.029
+margin_right = -233.085
+margin_bottom = -151.029
+
+[node name="Camera2D" type="Camera2D" parent="."]
+current = true

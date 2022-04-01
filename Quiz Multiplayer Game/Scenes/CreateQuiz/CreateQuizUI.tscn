@@ -1,0 +1,122 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://Scripts/CreateQuizUI.gd" type="Script" id=1]
+
+[node name="CreateQuizUI" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+rect_scale = Vector2( 2, 2 )
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+margin_right = 40.0
+margin_bottom = 40.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="QuizNameHBox" type="HBoxContainer" parent="VBoxContainer"]
+margin_right = 237.0
+margin_bottom = 20.0
+
+[node name="TextEdit" type="TextEdit" parent="VBoxContainer/QuizNameHBox"]
+margin_right = 230.0
+margin_bottom = 20.0
+rect_min_size = Vector2( 230, 20 )
+text = "Quiz Name"
+
+[node name="QuestionHBox" type="HBoxContainer" parent="VBoxContainer"]
+margin_top = 24.0
+margin_right = 237.0
+margin_bottom = 44.0
+
+[node name="TextEdit" type="TextEdit" parent="VBoxContainer/QuestionHBox"]
+margin_right = 230.0
+margin_bottom = 20.0
+rect_min_size = Vector2( 230, 20 )
+text = "Question"
+
+[node name="AnswerHBox1" type="HBoxContainer" parent="VBoxContainer"]
+margin_top = 48.0
+margin_right = 237.0
+margin_bottom = 68.0
+
+[node name="TextEdit" type="TextEdit" parent="VBoxContainer/AnswerHBox1"]
+margin_right = 120.0
+margin_bottom = 20.0
+rect_min_size = Vector2( 120, 0 )
+
+[node name="OptionButton" type="OptionButton" parent="VBoxContainer/AnswerHBox1"]
+margin_left = 124.0
+margin_right = 232.0
+margin_bottom = 20.0
+text = "True Answer"
+
+[node name="AnswerHBox2" type="HBoxContainer" parent="VBoxContainer"]
+margin_top = 72.0
+margin_right = 237.0
+margin_bottom = 92.0
+
+[node name="TextEdit" type="TextEdit" parent="VBoxContainer/AnswerHBox2"]
+margin_right = 120.0
+margin_bottom = 20.0
+rect_min_size = Vector2( 120, 0 )
+
+[node name="OptionButton" type="OptionButton" parent="VBoxContainer/AnswerHBox2"]
+margin_left = 124.0
+margin_right = 237.0
+margin_bottom = 20.0
+text = "False Answer"
+
+[node name="AnswerHBox3" type="HBoxContainer" parent="VBoxContainer"]
+margin_top = 96.0
+margin_right = 237.0
+margin_bottom = 116.0
+
+[node name="TextEdit" type="TextEdit" parent="VBoxContainer/AnswerHBox3"]
+margin_right = 120.0
+margin_bottom = 20.0
+rect_min_size = Vector2( 120, 0 )
+
+[node name="OptionButton" type="OptionButton" parent="VBoxContainer/AnswerHBox3"]
+margin_left = 124.0
+margin_right = 237.0
+margin_bottom = 20.0
+text = "False Answer"
+
+[node name="AnswerHBox4" type="HBoxContainer" parent="VBoxContainer"]
+margin_top = 120.0
+margin_right = 237.0
+margin_bottom = 140.0
+
+[node name="TextEdit" type="TextEdit" parent="VBoxContainer/AnswerHBox4"]
+margin_right = 120.0
+margin_bottom = 20.0
+rect_min_size = Vector2( 120, 0 )
+
+[node name="OptionButton" type="OptionButton" parent="VBoxContainer/AnswerHBox4"]
+margin_left = 124.0
+margin_right = 237.0
+margin_bottom = 20.0
+text = "False Answer"
+
+[node name="AddQuestionButton" type="Button" parent="VBoxContainer"]
+margin_top = 144.0
+margin_right = 237.0
+margin_bottom = 164.0
+text = "Add Question"
+
+[node name="GoBackButton" type="Button" parent="VBoxContainer"]
+margin_top = 168.0
+margin_right = 237.0
+margin_bottom = 188.0
+text = "Go Back"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[connection signal="pressed" from="VBoxContainer/AddQuestionButton" to="." method="_on_AddQuestionButton_pressed"]
+[connection signal="pressed" from="VBoxContainer/GoBackButton" to="." method="_on_GoBackButton_pressed"]
